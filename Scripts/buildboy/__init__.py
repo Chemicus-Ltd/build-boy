@@ -87,10 +87,10 @@ class Builder():
 
         return self._blender_path
 
-    def build_silico(self, branch = "build"):
-        """Build silico"""
+    def build_digichem(self, branch = "build"):
+        """Build digichem"""
         return self.build_target(
-            "~/silico",
+            "~/digichem",
             branch = branch,
             freezeargs = [
                 # Pass along the oprattle dir so that gets bundled.
@@ -104,58 +104,58 @@ class Builder():
             ]
         )
 
-    def prep_repos(self, silico_branch = "build", digichem_branch = "main"):
+    def prep_repos(self, digichem_branch = "build", digilib_branch = "main"):
         """
         Setup the build environment.
         """
         # Get the latest version of repos that we'll need.
-        update_repo(expand_path('~/silico'), silico_branch)
+        update_repo(expand_path('~/digichem'), digichem_branch)
         update_repo(expand_path('~/cclib'), "digichem")
         update_repo(expand_path('~/configurables'))
-        update_repo(expand_path('~/digichem-core'), digichem_branch)
+        update_repo(expand_path('~/digilib'), digilib_branch)
         update_repo(expand_path('~/openprattle'))
         update_repo(expand_path('~/pysoc'), "master")
-        os.chdir(expand_path('~/silico'))
+        os.chdir(expand_path('~/digichem'))
 
-        import silico
+        import digilib
         import digichem
-        importlib.reload(silico)
+        importlib.reload(digilib)
         importlib.reload(digichem)
 
     def check_for_new_version(self, branch):
         """
         """
-        import silico
+        import diglib
         import digichem
 
         import openprattle
-        if silico.__version__.strip() == self.last_data.get(branch, {}).get('version', ""):
+        if digichem.__version__.strip() == self.last_data.get(branch, {}).get('version', ""):
             # Nothing new.
-            raise Exception("build-boy: Nothing to do, last built version was '{}', current version is '{}'".format(self.last_data.get(branch, {}).get('version', ""), silico.__version__))
+            raise Exception("build-boy: Nothing to do, last built version was '{}', current version is '{}'".format(self.last_data.get(branch, {}).get('version', ""), digichem.__version__))
 
     def get_upgrade_info(self, branch):
         """
         """
-        import silico
+        import digichem
 
         new_commit = subprocess.run(['git', 'rev-parse', '--verify', 'HEAD'], capture_output=True, universal_newlines=True, check=True).stdout.strip()
 
         # Update data.
         self.new_data = copy.deepcopy(self.last_data)
         self.new_data[branch] = {
-            'version': silico.__version__,
+            'version': digichem.__version__,
             'commit': new_commit,
-            'release_version': self.last_data.get(branch, {}).get('release_version', silico.__version__),
+            'release_version': self.last_data.get(branch, {}).get('release_version', digichem.__version__),
             'release_commit': self.last_data.get(branch, {}).get('release_commit', new_commit)
         }
         # If this is a major version, update that too.
-        if not silico.development:
+        if not digichem.development:
             self.new_data[branch]['release_version'] = self.new_data[branch]['version']
             self.new_data[branch]['release_commit'] = self.new_data[branch]['commit']
 
         # Get a list of changes for later.
         # If it's a release (!development), show from the last release version.
-        if silico.development:
+        if digichem.development:
             last_commit = self.last_data.get(branch, {}).get('commit', "")
             self.last_version = self.last_data.get(branch, {}).get('version', "")
         
@@ -209,17 +209,17 @@ class Builder():
         print("--------------------")
         print("Building digichem...")
         print("--------------------")
-        silico_paths = self.build_silico(branch = branch)
+        digichem_paths = self.build_digichem(branch = branch)
 
         print("-------------------")
         print("Building blender...")
         print("-------------------")
-        import silico
+        import digichem
         if blender and not download_blender:
             blender_paths = self.build_blender(blender, branch = "blender-v{}-release".format(blender))
         
         elif blender and download_blender:
-            blender_paths = grab_blender(silico.__version__)
+            blender_paths = grab_blender(digichem.__version__)
         
         else:
             blender_paths = {}
@@ -229,37 +229,37 @@ class Builder():
             # Create a second archive, this one-containing blender.
             # Instead of copying, we'll move the blender build (to save file space).
             blender_paths['dir'].rename(
-                Path(silico_paths['dir'], "blender")
+                Path(digichem_paths['dir'], "blender")
             )
 
             try:
                 # Create a symlink.
-                os.chdir(Path(silico_paths['dir']))
+                os.chdir(Path(digichem_paths['dir']))
                 os.symlink("blender/blender", "batoms-blender")
 
                 # Create a new archive.
                 print("Creating archive with blender...")
                 
-                os.chdir(Path(silico_paths['dir'], ".."))
+                os.chdir(Path(digichem_paths['dir'], ".."))
                 subprocess.run([
                     "tar",
                     "-czf"
-                    "{}-blender.tar.gz".format(silico_paths['archive'].with_suffix("").with_suffix("")),
+                    "{}-blender.tar.gz".format(digichem_paths['archive'].with_suffix("").with_suffix("")),
                     "digichem"
                 ])
 
-                silico_blender_paths = {
-                    "archive": Path(silico_paths['dir'], "..", "{}-blender.tar.gz".format(silico_paths['archive'].with_suffix("").with_suffix(""))).resolve()
+                digichem_blender_paths = {
+                    "archive": Path(digichem_paths['dir'], "..", "{}-blender.tar.gz".format(digichem_paths['archive'].with_suffix("").with_suffix(""))).resolve()
                 }
             
             finally:
                 # Move blender back in case another build want it.
-                Path(silico_paths['dir'], "blender").rename(
+                Path(digichem_paths['dir'], "blender").rename(
                     blender_paths['dir']
                 )
         
         else:
-            silico_blender_paths = {}
+            digichem_blender_paths = {}
 
         # Change back to build-boy's dir.
         build_dir = Path(expand_path("~/build-boy/Builds"), self.target)
@@ -311,7 +311,7 @@ class Builder():
                 print("Failed to process commit: {}, {}".format(raw_change, e))
         
         # Now assemble into a changelog
-        changelog = ["### Changes in this version ({}) since {}".format(silico.__version__, self.last_version)]
+        changelog = ["### Changes in this version ({}) since {}".format(digichem.__version__, self.last_version)]
         for change_type in changes:
             if len(changes[change_type]) == 0:
                 # No updates for this class, skip.
@@ -333,25 +333,25 @@ class Builder():
         # Copy the LICENSES folder for easier viewing.
         shutil.rmtree(Path(build_dir, 'LICENSES'), ignore_errors = True)
         shutil.copytree(
-            Path(silico_paths['dir'], '_internal', 'LICENSES'),
+            Path(digichem_paths['dir'], '_internal', 'LICENSES'),
             Path(build_dir, 'LICENSES'),
             copy_function = shutil.copy)
         
         # And also the main Digichem license.
-        shutil.copy(Path(silico_paths['dir'], "LICENSE"), Path(build_dir))
+        shutil.copy(Path(digichem_paths['dir'], "LICENSE"), Path(build_dir))
 
         # Commit the new version.
         subprocess.run([
             "git", "add", "."
         ], universal_newlines = True, check = True)
         subprocess.run([
-            'git', 'commit', '-m', 'Build version {} on {}'.format(silico.__version__, self.target)
+            'git', 'commit', '-m', 'Build version {} on {}'.format(digichem.__version__, self.target)
         ], universal_newlines = True, check = True)
 
-        tag = '{}-{}'.format(silico.__version__, self.target)
+        tag = '{}-{}'.format(digichem.__version__, self.target)
         # Tag it.
         subprocess.run([
-            'git', 'tag', '-a', tag, '-m', 'Build of version {} on {}'.format(silico.__version__, self.target)
+            'git', 'tag', '-a', tag, '-m', 'Build of version {} on {}'.format(digichem.__version__, self.target)
         ], universal_newlines = True, check = True)
 
         # Upload to the server.
@@ -362,7 +362,7 @@ class Builder():
             universal_newlines = True, check = True)
 
         depends = [
-            ["digichem-core", 'digichem'],
+            "digilib",
             "basis_set_exchange",
             "cclib",
             "mako",
@@ -378,7 +378,7 @@ class Builder():
             "weasyprint",
         ]
         
-        notes = '### Automated build of Digichem v{} for the {} system\n'.format(silico.__version__, self.target) +\
+        notes = '### Automated build of Digichem v{} for the {} system\n'.format(digichem.__version__, self.target) +\
                 '#### Bundled with:\n'
         
         for depend in depends:
@@ -399,20 +399,20 @@ class Builder():
         notes += 'Built by the hard-working Build-boy.'
 
         # Now create a github release and attach the build.
-        sig = ['gh', 'release', 'create', tag, silico_paths['archive']]
+        sig = ['gh', 'release', 'create', tag, digichem_paths['archive']]
 
         if "archive" in blender_paths:
             sig.append(blender_paths['archive'])
         
-        if "archive" in silico_blender_paths:
-            sig.append(silico_blender_paths['archive'])
+        if "archive" in digichem_blender_paths:
+            sig.append(digichem_blender_paths['archive'])
         
         sig.extend([
             '--notes', notes,
-            '--title', 'Digichem version {} for {}'.format(silico.__version__, self.target)
+            '--title', 'Digichem version {} for {}'.format(digichem.__version__, self.target)
         ])
         # Add pre-release if necessary.
-        if silico.development:
+        if digichem.development:
             sig.append('-p')
 
         # Upload
@@ -436,27 +436,27 @@ class Builder():
         # All done, update the main README with the latest version.
         # But only if this is a production version!
         # And only if this is the stable branch!
-        if not silico.development and branch == "build":
+        if not digichem.development and branch == "build":
             # First, prepare the links we'll need.
-            #https://github.com/Digichem-Project/build-boy/releases/download/6.0.0-pre.3-CentOS-Stream-8/digichem.6.0.0-pre.3.CentOS-Stream-8.tar.gz
-            full_download_link = "https://github.com/Digichem-Project/build-boy/releases/download/{}-{}/digichem.{}.{}-blender.tar.gz".format(
-                silico.__version__,
+            #https://github.com/Chemicus-Ltd/build-boy/releases/download/6.0.0-pre.3-CentOS-Stream-8/digichem.6.0.0-pre.3.CentOS-Stream-8.tar.gz
+            full_download_link = "https://github.com/Chemicus-Ltd/build-boy/releases/download/{}-{}/digichem.{}.{}-blender.tar.gz".format(
+                digichem.__version__,
                 self.target,
-                silico.__version__,
+                digichem.__version__,
                 self.target
             )
             full_download_string = "[Download Digichem v{}]({})".format(
-                silico.__version__,
+                digichem.__version__,
                 full_download_link
-            ) if "archive" in silico_blender_paths else "N/A"
-            lite_download_link = "https://github.com/Digichem-Project/build-boy/releases/download/{}-{}/digichem.{}.{}.tar.gz".format(
-                silico.__version__,
+            ) if "archive" in digichem_blender_paths else "N/A"
+            lite_download_link = "https://github.com/Chemicus-Ltd/build-boy/releases/download/{}-{}/digichem.{}.{}.tar.gz".format(
+                digichem.__version__,
                 self.target,
-                silico.__version__,
+                digichem.__version__,
                 self.target
             )
             lite_download_string = "[Download Digichem Lite v{}]({})".format(
-                silico.__version__,
+                digichem.__version__,
                 lite_download_link
             )
 
@@ -484,7 +484,7 @@ class Builder():
                 readme_file.write(readme_data)
 
             # Upload.
-            subprocess.run(['git', 'commit', "../../README.md", '-m', "docs: updated download link for {}-{}".format(silico.__version__, self.target)],
+            subprocess.run(['git', 'commit', "../../README.md", '-m', "docs: updated download link for {}-{}".format(digichem.__version__, self.target)],
                 universal_newlines = True, check = True)
             subprocess.run(['git', 'push', 'origin'],
                 universal_newlines = True, check = True)
@@ -504,9 +504,9 @@ def build(target, blender = None, download_blender = False):
     man = Builder(target)
 
     # And go!
-    for branch, digichem_branch in builds:
+    for branch, digilib_branch in builds:
         try:
-            man.build(branch, digichem_branch, blender, download_blender)
+            man.build(branch, digilib_branch, blender, download_blender)
         
         except Exception as e:
             logging.error("Build failed", exc_info = True)

@@ -1,7 +1,7 @@
-This license applies only to to the digichem/data/batoms directory.
-Please see digichem/COPYING for full licensing information.
+This license applies only to to the digilib/data/batoms directory.
+Please see digilib/COPYING for full licensing information.
 
-digichem.data.batoms: scripts for driving the beautiful atoms blender plugin
+digilib.data.batoms: scripts for driving the beautiful atoms blender plugin
 Copyright (C) 2024  Digichem
 
 This program is free software: you can redistribute it and/or modify

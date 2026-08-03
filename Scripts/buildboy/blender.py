@@ -19,7 +19,7 @@ def grab_blender(digichem_target, os_target = "CentOS-Stream-8", blender_target 
     basedir = expand_path(basedir)
     archive_name = "blender.{}.batoms.{}.tar.gz".format(blender_target, os_target)
 
-    url = "https://github.com/Digichem-Project/build-boy/releases/download/{}-{}/{}".format(
+    url = "https://github.com/Chemicus-Ltd/build-boy/releases/download/{}-{}/{}".format(
         digichem_target,
         os_target,
         archive_name
@@ -79,7 +79,7 @@ def build_blender(os_target, target = "4.4", basedir = "~/blender", branch = "bl
     with tempfile.TemporaryDirectory() as temp_dir:
         print("Downloading batoms...")
         # Custom bugfix.
-        #urllib.request.urlretrieve("https://github.com/Digichem-Project/beautiful-atoms/archive/refs/heads/feat/logging.zip", Path(temp_dir, "batoms.zip"))
+        #urllib.request.urlretrieve("https://github.com/Chemicus-Ltd/beautiful-atoms/archive/refs/heads/feat/logging.zip", Path(temp_dir, "batoms.zip"))
         # Official repo.
         urllib.request.urlretrieve("https://github.com/beautiful-atoms/beautiful-atoms/archive/refs/heads/main.zip", Path(temp_dir, "batoms.zip"))
 
