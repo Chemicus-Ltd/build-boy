@@ -496,7 +496,7 @@ def build(target, blender = None, download_blender = False):
     """Build!"""
     # What shall we make?
     builds = [
-        ["build", "main"],
+        #["build", "main"],
         ["build-testing", "v8.x"]
     ]
 
