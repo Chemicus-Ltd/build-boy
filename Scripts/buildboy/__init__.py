@@ -112,7 +112,7 @@ class Builder():
         update_repo(expand_path('~/digichem'), digichem_branch)
         update_repo(expand_path('~/cclib'), "digichem")
         update_repo(expand_path('~/configurables'))
-        update_repo(expand_path('~/digilib'), digilib_branch)
+        update_repo(expand_path('~/digichem-library'), digilib_branch)
         update_repo(expand_path('~/openprattle'))
         update_repo(expand_path('~/pysoc'), "master")
         os.chdir(expand_path('~/digichem'))
