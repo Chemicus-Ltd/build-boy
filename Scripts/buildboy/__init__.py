@@ -125,7 +125,7 @@ class Builder():
     def check_for_new_version(self, branch):
         """
         """
-        import diglib
+        import digilib
         import digichem
 
         import openprattle
