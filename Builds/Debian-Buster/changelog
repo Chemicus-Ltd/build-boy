@@ -1,41 +1,9 @@
-### Changes in this version (8.0.0-pre.11) since 8.0.0-pre.10
-
-#### New features:
- - [%as:]: unavailable nodes are now hidden by default
- - [%as:]: stopped creating double licenses for cloud only sign-ups
- - [%as:]: added hubspot email functionality to stripe endpoint
- - [%as:]: added customer deleted endpoint
- - [%as:]: also listen for subscription cancel events
- - [%as:]: enabled update_subscription endpoint
- - [%as:]: added update_subscription endpoint
- - [%as:]: added missing background-tasks
- - [%as:]: added further endpoints for stripe
- - [%as:]: added initial version of stripe endpoint
- - [%as:]: added initial versions of stripe endpoints
- - [%as:]: added better error reporting when lacking policy permissions
- - [%as:]: added support for multiple license policies and restricting access based on policy
- - [%as:]: updated programs to use bundled binaries as defaults
+### Changes in this version (8.0.0-pre.12) since 8.0.0-pre.11
 
 #### Bugfixes:
- - [%as:]: fixed job queue program not filtering correctly
- - [%as:]: fixed push instead of append
- - [%as:]: fixed using wrong ID in update endpoint
- - [%as:]: fix for when a user adds an additional license
- - [%as:]: fixed typo
- - [%as:]: slurm allocation should be updated even if the user account already exists
- - [%as:]: checkout webhook now checks for 6 licenses instead of just 2
- - [%as:]: added missing comma
- - [%as:]: fixed missing variables
- - [%as:]: fixed endpoint
- - [%as:]: fixed call to non-existant pre()
- - [%as:]: fixed destination.pre() not being called from resumable configs
- - [%as:]: fixed missing program stats
- - [%as:]: fixed showing hidden queue usage in API (fixed digichem-desktop#103)
- - [%as:]: fixed bundling both digichem and digilib into same dir
+ - [%as:]: fixed missing gaussian reports
+ - [%as:]: fixed series calcs not supporting email address
 
 #### Miscellaneous:
+ - [%as:]: bumped to pre.11
  - [%as:]: bumped version to pre.11
- - [%as:]: moved each stripe endpoint to seperate file
- - [%as:]: further rearranged webhook code
- - [%as:]: moved some digichem specific IDs into auth
- - [%as:]: moved webhook endpoints to separate directory
