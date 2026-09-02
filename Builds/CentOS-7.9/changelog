@@ -1,41 +1,9 @@
-### Changes in this version (8.0.0-pre.11) since 8.0.0-pre.10
-
-#### New features:
- - [2026-08-18:]: unavailable nodes are now hidden by default
- - [2026-08-18:]: stopped creating double licenses for cloud only sign-ups
- - [2026-08-18:]: added hubspot email functionality to stripe endpoint
- - [2026-08-18:]: added customer deleted endpoint
- - [2026-08-18:]: also listen for subscription cancel events
- - [2026-08-18:]: enabled update_subscription endpoint
- - [2026-08-18:]: added update_subscription endpoint
- - [2026-08-11:]: added missing background-tasks
- - [2026-08-11:]: added further endpoints for stripe
- - [2026-08-11:]: added initial version of stripe endpoint
- - [2026-08-11:]: added initial versions of stripe endpoints
- - [2026-08-11:]: added better error reporting when lacking policy permissions
- - [2026-08-11:]: added support for multiple license policies and restricting access based on policy
- - [2026-08-06:]: updated programs to use bundled binaries as defaults
+### Changes in this version (8.0.0-pre.12) since 8.0.0-pre.11
 
 #### Bugfixes:
- - [2026-08-30:]: fixed job queue program not filtering correctly
- - [2026-08-18:]: fixed push instead of append
- - [2026-08-18:]: fixed using wrong ID in update endpoint
- - [2026-08-12:]: fix for when a user adds an additional license
- - [2026-08-12:]: fixed typo
- - [2026-08-12:]: slurm allocation should be updated even if the user account already exists
- - [2026-08-12:]: checkout webhook now checks for 6 licenses instead of just 2
- - [2026-08-11:]: added missing comma
- - [2026-08-11:]: fixed missing variables
- - [2026-08-11:]: fixed endpoint
- - [2026-08-11:]: fixed call to non-existant pre()
- - [2026-08-11:]: fixed destination.pre() not being called from resumable configs
- - [2026-08-07:]: fixed missing program stats
- - [2026-08-06:]: fixed showing hidden queue usage in API (fixed digichem-desktop#103)
- - [2026-08-04:]: fixed bundling both digichem and digilib into same dir
+ - [2026-09-01:]: fixed missing gaussian reports
+ - [2026-09-01:]: fixed series calcs not supporting email address
 
 #### Miscellaneous:
+ - [2026-09-01:]: bumped to pre.11
  - [2026-08-30:]: bumped version to pre.11
- - [2026-08-18:]: moved each stripe endpoint to seperate file
- - [2026-08-18:]: further rearranged webhook code
- - [2026-08-13:]: moved some digichem specific IDs into auth
- - [2026-08-13:]: moved webhook endpoints to separate directory
