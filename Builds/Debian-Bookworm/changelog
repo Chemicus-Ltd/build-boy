@@ -1,9 +1,9 @@
-### Changes in this version (8.0.0-pre.12) since 8.0.0-pre.11
+### Changes in this version (8.0.0-pre.13) since 8.0.0-pre.12
 
 #### Bugfixes:
+ - [2026-09-02:]: fixed various crashed caused by attempting to update a job that's not recorded in the job db
+ - [2026-09-02:]: fixed mongita job db error messages referring to 'results' instead if 'jobs'
  - [2026-09-01:]: fixed missing gaussian reports
- - [2026-09-01:]: fixed series calcs not supporting email address
 
 #### Miscellaneous:
- - [2026-09-01:]: bumped to pre.11
- - [2026-08-30:]: bumped version to pre.11
+ - [2026-09-02:]: bumped version to pre.13
