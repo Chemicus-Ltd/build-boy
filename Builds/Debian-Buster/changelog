@@ -1,9 +1,12 @@
-### Changes in this version (8.0.0-pre.13) since 8.0.0-pre.12
+### Changes in this version (8.0.0-pre.15) since 8.0.0-pre.13
 
 #### Bugfixes:
- - [%as:]: fixed various crashed caused by attempting to update a job that's not recorded in the job db
- - [%as:]: fixed mongita job db error messages referring to 'results' instead if 'jobs'
- - [%as:]: fixed missing gaussian reports
+ - [%as:]: fixed missing profiling data for PySCF
+ - [%as:]: fixed not being able to submit when sending overrides
+ - [%as:]: fixed method overrides
+ - [%as:]: fixed various Gaussian cube maker objects not inheriting cubegen executable
 
 #### Miscellaneous:
+ - [%as:]: bumped to pre.15
+ - [%as:]: bumped to pre.14
  - [%as:]: bumped version to pre.13
