@@ -1,12 +1,9 @@
-### Changes in this version (8.0.0-pre.15) since 8.0.0-pre.13
+### Changes in this version (8.0.0-pre.16) since 8.0.0-pre.15
 
 #### Bugfixes:
+ - [%as:]: fixed missing combined reports
+ - [%as:]: fixed username missing from job q command
  - [%as:]: fixed missing profiling data for PySCF
- - [%as:]: fixed not being able to submit when sending overrides
- - [%as:]: fixed method overrides
- - [%as:]: fixed various Gaussian cube maker objects not inheriting cubegen executable
 
 #### Miscellaneous:
- - [%as:]: bumped to pre.15
- - [%as:]: bumped to pre.14
- - [%as:]: bumped version to pre.13
+ - [%as:]: bumped to pre.16
