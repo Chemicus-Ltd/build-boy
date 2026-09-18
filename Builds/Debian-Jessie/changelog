@@ -1,9 +1,8 @@
-### Changes in this version (8.0.0-pre.16) since 8.0.0-pre.15
+### Changes in this version (8.0.0-pre.17) since 8.0.0-pre.16
 
-#### Bugfixes:
- - [%as:]: fixed missing combined reports
- - [%as:]: fixed username missing from job q command
- - [%as:]: fixed missing profiling data for PySCF
+#### New features:
+ - [%as:]: job q program now limits from the most recent jobs, not the oldest
 
 #### Miscellaneous:
+ - [%as:]: bumped version to pre.17
  - [%as:]: bumped to pre.16
