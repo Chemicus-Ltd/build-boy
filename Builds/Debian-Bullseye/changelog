@@ -1,8 +1,10 @@
-### Changes in this version (8.0.0-pre.17) since 8.0.0-pre.16
+### Changes in this version (8.0.0-pre.18) since 8.0.0-pre.17
 
-#### New features:
- - [2026-09-17:]: job q program now limits from the most recent jobs, not the oldest
+#### Bugfixes:
+ - [2026-09-18:]: fix for series calculations being submitted twice
+ - [2026-09-18:]: fixed typo in Series
+ - [2026-09-18:]: fixed jobs endpoint crashing if slurm disappears
 
 #### Miscellaneous:
+ - [2026-09-18:]: bumped to pre.18
  - [2026-09-17:]: bumped version to pre.17
- - [2026-09-16:]: bumped to pre.16
