@@ -1,13 +1,9 @@
-### Changes in this version (8.0.0-pre.20) since 8.0.0-pre.18
+### Changes in this version (8.0.0-pre.21) since 8.0.0-pre.20
 
 #### Bugfixes:
- - [%as:]: fixed Turbomole calculations not placing some temp files in the scratch location
- - [%as:]: fixed not being able to specify scs params for Turbomole
- - [%as:]: fixed typo in report resulting in wrong style for fractions
- - [%as:]: the same
- - [%as:]: fixed Orca dcorr correction using the wrong type
+ - [%as:]: fixed Turbomole calculations not applying SCS paramaters correctly
 
 #### Miscellaneous:
+ - [%as:]: added install link for digichem7 pointing to current release
+ - [%as:]: bumped version to pre.21
  - [%as:]: bumped to pre.20
- - [%as:]: bumped to pre.19
- - [%as:]: bumped to pre.18
