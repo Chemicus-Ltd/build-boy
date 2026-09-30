@@ -1,10 +1,13 @@
-### Changes in this version (8.0.0-pre.18) since 8.0.0-pre.17
+### Changes in this version (8.0.0-pre.20) since 8.0.0-pre.18
 
 #### Bugfixes:
- - [%as:]: fix for series calculations being submitted twice
- - [%as:]: fixed typo in Series
- - [%as:]: fixed jobs endpoint crashing if slurm disappears
+ - [%as:]: fixed Turbomole calculations not placing some temp files in the scratch location
+ - [%as:]: fixed not being able to specify scs params for Turbomole
+ - [%as:]: fixed typo in report resulting in wrong style for fractions
+ - [%as:]: the same
+ - [%as:]: fixed Orca dcorr correction using the wrong type
 
 #### Miscellaneous:
+ - [%as:]: bumped to pre.20
+ - [%as:]: bumped to pre.19
  - [%as:]: bumped to pre.18
- - [%as:]: bumped version to pre.17
