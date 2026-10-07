@@ -13,6 +13,6 @@ Digichem goes back to sleep.
 
 `Scripts/Command` contains the master build script, used to run the other VMs.
 
-Actual builds of Digichem are uploaded as specific tags/releases, available here: https://github.com/Digichem-Project/build-boy/releases.
+Actual builds of Digichem are uploaded as specific tags/releases, available here: https://github.com/Chemicus-Ltd/build-boy/releases.
 
 ![Build-boy](face.jpg)

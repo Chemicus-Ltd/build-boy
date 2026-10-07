@@ -51,7 +51,7 @@ Suitable for Debian, Ubuntu, and other related distros.
 
 ## All Builds
 
-For historic builds of older versions, see the [releases page](https://github.com/Digichem-Project/build-boy/releases).
+For historic builds of older versions, see the [releases page](https://github.com/Chemicus-Ltd/build-boy/releases).
 
 ## My OS/version Isn't Supported!
 
@@ -70,7 +70,7 @@ that most closely matches yours in terms of release date.
 
 Digichem tries to maintain a reasonable list of supported OS to match those that are found in the wild.
 If your OS isn't supported and you think it should be, please consider creating an
-[issue](https://github.com/Digichem-Project/build-boy/issues), and we'll see what we can do.
+[issue](https://github.com/Chemicus-Ltd/build-boy/issues), and we'll see what we can do.
 
 If in doubt, the oldest available OS (currently CentOS-7.9) is the most likely to be compatible.
 
@@ -84,7 +84,7 @@ The oldest currently supported glibc version is 2.17 (CentOS 7.9).
 
 The Digichem project is split into two sections, each with it's own license.
  - The Digichem program is proprietary software. To use the program, you will need to obtain a license key from [Digichem](https://digi-chem.co.uk/get-started-year).
- - Core components of the library ([Digichem-library](https://github.com/Digichem-Project/digichem-library)) are distributed separately under an open-source license.
+ - Core components of the library ([Digichem-library](https://github.com/Chemicus-Ltd/digichem-library)) are distributed separately under an open-source license.
 
 Additionally, Build-boy (the code in this repository) is available separately under an open-source license.
 
@@ -99,7 +99,7 @@ See the [DIGICHEM_LICENSE_TEMPLATE](DIGICHEM_LICENSE_TEMPLATE.md) file for an ex
 ### Digichem-library
 
 The Digichem-library is licensed under the permissive, open-source BSD 3-clause license.
-See [Digichem-library](https://github.com/Digichem-Project/digichem-library) for more information.
+See [Digichem-library](https://github.com/Chemicus-Ltd/digichem-library) for more information.
 
 ### Build-boy
 
@@ -120,15 +120,15 @@ See the `_internal/LICENSES` folder of each distribution to view these individua
 
 The Digichem download archives also contains additional software that is not directly incorporated into the Digichem program. These packages are:
 
- - [Openprattle](https://github.com/Digichem-Project/openprattle), used for file conversions
+ - [Openprattle](https://github.com/Chemicus-Ltd/openprattle), used for file conversions
  - [Blender](https://www.blender.org/), used for rendering images
 
 These packages are optional and can be removed if you wish, but as they provide useful functionality we generally recommend you include them in your installation.
 
 #### Openprattle
 
-Openprattle is currently licensed under the GPL V2.0. The licensing terms can be found in the `digichem/openprattle/_internal/LICENSES/openprattle` directory of your download, or on [github](https://github.com/Digichem-Project/openprattle/blob/main/LICENSE).
-The source code for Openprattle is available from [github](https://github.com/Digichem-Project/openprattle).
+Openprattle is currently licensed under the GPL V2.0. The licensing terms can be found in the `digichem/openprattle/_internal/LICENSES/openprattle` directory of your download, or on [github](https://github.com/Chemicus-Ltd/openprattle/blob/main/LICENSE).
+The source code for Openprattle is available from [github](https://github.com/Chemicus-Ltd/openprattle).
 
 #### Blender
 
