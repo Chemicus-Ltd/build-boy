@@ -84,7 +84,7 @@ The oldest currently supported glibc version is 2.17 (CentOS 7.9).
 
 The Digichem project is split into two sections, each with it's own license.
  - The Digichem program is proprietary software. To use the program, you will need to obtain a license key from [Digichem](https://digi-chem.co.uk/get-started-year).
- - Core components of the library ([Digichem-core](https://github.com/Digichem-Project/digichem-core)) are distributed separately under an open-source license.
+ - Core components of the library ([Digichem-library](https://github.com/Digichem-Project/digichem-library)) are distributed separately under an open-source license.
 
 Additionally, Build-boy (the code in this repository) is available separately under an open-source license.
 
@@ -96,10 +96,10 @@ License keys can be purchased from [Digichem](https://digi-chem.co.uk/get-starte
 Your Digichem license will be included in your download. See the included LICENSE file for full details.
 See the [DIGICHEM_LICENSE_TEMPLATE](DIGICHEM_LICENSE_TEMPLATE.md) file for an example of such a license.
 
-### Digichem-core
+### Digichem-library
 
-The Digichem-core library is licensed under the permissive, open-source BSD 3-clause license.
-See [Digichem-core](https://github.com/Digichem-Project/digichem-core) for more information.
+The Digichem-library is licensed under the permissive, open-source BSD 3-clause license.
+See [Digichem-library](https://github.com/Digichem-Project/digichem-library) for more information.
 
 ### Build-boy
 
@@ -111,7 +111,7 @@ The Digichem logo and branding is Copyright Digichem 2026, you may not use them 
 
 ### External libraries
 
-Digichem and Digichem-core both use a number of 3rd party libraries and programs for certain functionality.
+Digichem and Digichem-library both use a number of 3rd party libraries and programs for certain functionality.
 As part of the build process, these libraries are included into the distributed archive automatically.
 Each program and library naturally retains its original license, which are separate from any of the Digichem licenses.
 See the `_internal/LICENSES` folder of each distribution to view these individual licenses.
