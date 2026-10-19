@@ -1,4 +1,4 @@
-### Changes in this version (8.1.0-pre.1) since 8.0.0
+### Changes in this version (8.1.1) since 8.0.0
 
 #### New features:
  - [%as:]: added in-core/out-core ('-rw') option for std2
@@ -24,6 +24,8 @@
  - [%as:]: updated tests to reflect new methods in libary
 
 #### Miscellaneous:
+ - [%as:]: update last modified
+ - [%as:]: bumped version to 8.1.1, upgrade digilib to the same
  - [%as:]: update last modified
  - [%as:]: replaced missing chars with empty strings instead of underscores in endpoint
  - [%as:]: fixed wrong type for xtb cube option
