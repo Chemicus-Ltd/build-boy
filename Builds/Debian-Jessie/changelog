@@ -1,38 +1,18 @@
-### Changes in this version (8.1.1) since 8.0.0
-
-#### New features:
- - [%as:]: added in-core/out-core ('-rw') option for std2
- - [%as:]: added support for configurables index
- - [%as:]: allowed no limit on method part endpoint
- - [%as:]: added ID to method part end point
- - [%as:]: added method endpoints to get programs/destinations matching a class name
- - [%as:]: added atom_defaults to other program parsers
- - [%as:]: added option to disable the xtb density cube file
+### Changes in this version (8.1.2) since 8.1.1
 
 #### Bugfixes:
- - [%as:]: fixed a bug when using basis sets from the BSE that don't contain ECPs
- - [%as:]: added patch for unusual charactres in endpoints
- - [%as:]: fixed xTB calculations crashing if topo file is missing for some reason
- - [%as:]: fixed error message when trying to delete xtb cube file but no results have been parsed
- - [%as:]: fixed xTB program not using latest 6.7.1
- - [%as:]: ulimit is now automatically set based on the total allocated memory
-
-#### Documentation changes:
- - [%as:]: updated documentation to v8 references
+ - [%as:]: fixed reference error
+ - [%as:]: destinations now no-longer try to lock the db if they don't plan on using it
+ - [%as:]: fixed std2 incore check using 10 rather than 1000 D
+ - [%as:]: added better error reporting for reports
 
 #### Testing updates:
- - [%as:]: updated tests to reflect new methods in libary
+ - [%as:]: added test skip for report writing if blender is not available
+ - [%as:]: added test for report writing after calculation running
 
 #### Miscellaneous:
  - [%as:]: update last modified
- - [%as:]: bumped version to 8.1.1, upgrade digilib to the same
+ - [%as:]: version to 8.1.2
+ - [%as:]: bumped version to 8.1.2-pre.1
+ - [%as:]: exposed the calculation ghost option as a command line argument to submit
  - [%as:]: update last modified
- - [%as:]: replaced missing chars with empty strings instead of underscores in endpoint
- - [%as:]: fixed wrong type for xtb cube option
- - [%as:]: added better handling of xTB cube file
- - [%as:]: bumped version to 8.1.0-pre.1
- - [%as:]: added SOS-wPBEPP86 to auto characterisation
- - [%as:]: bumped version to 8.0.0-pre.1
- - [%as:]: added SCS and SOS version of wPBEPP86 to library
- - [%as:]: updated docs workflow
- - [%as:]: bumped version to 8.0.0
