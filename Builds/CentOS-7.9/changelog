@@ -1,38 +1,18 @@
-### Changes in this version (8.1.1) since 8.0.0
-
-#### New features:
- - [2026-10-14:]: added in-core/out-core ('-rw') option for std2
- - [2026-10-14:]: added support for configurables index
- - [2026-10-13:]: allowed no limit on method part endpoint
- - [2026-10-13:]: added ID to method part end point
- - [2026-10-13:]: added method endpoints to get programs/destinations matching a class name
- - [2026-10-09:]: added atom_defaults to other program parsers
- - [2026-10-09:]: added option to disable the xtb density cube file
+### Changes in this version (8.1.2) since 8.1.1
 
 #### Bugfixes:
- - [2026-10-14:]: fixed a bug when using basis sets from the BSE that don't contain ECPs
- - [2026-10-12:]: added patch for unusual charactres in endpoints
- - [2026-10-09:]: fixed xTB calculations crashing if topo file is missing for some reason
- - [2026-10-09:]: fixed error message when trying to delete xtb cube file but no results have been parsed
- - [2026-10-09:]: fixed xTB program not using latest 6.7.1
- - [2026-10-09:]: ulimit is now automatically set based on the total allocated memory
-
-#### Documentation changes:
- - [2026-10-08:]: updated documentation to v8 references
+ - [2026-10-27:]: fixed reference error
+ - [2026-10-27:]: destinations now no-longer try to lock the db if they don't plan on using it
+ - [2026-10-27:]: fixed std2 incore check using 10 rather than 1000 D
+ - [2026-10-27:]: added better error reporting for reports
 
 #### Testing updates:
- - [2026-10-09:]: updated tests to reflect new methods in libary
+ - [2026-10-28:]: added test skip for report writing if blender is not available
+ - [2026-10-27:]: added test for report writing after calculation running
 
 #### Miscellaneous:
+ - [2026-10-29:]: update last modified
+ - [2026-10-29:]: version to 8.1.2
+ - [2026-10-27:]: bumped version to 8.1.2-pre.1
+ - [2026-10-27:]: exposed the calculation ghost option as a command line argument to submit
  - [2026-10-19:]: update last modified
- - [2026-10-19:]: bumped version to 8.1.1, upgrade digilib to the same
- - [2026-10-14:]: update last modified
- - [2026-10-12:]: replaced missing chars with empty strings instead of underscores in endpoint
- - [2026-10-09:]: fixed wrong type for xtb cube option
- - [2026-10-09:]: added better handling of xTB cube file
- - [2026-10-09:]: bumped version to 8.1.0-pre.1
- - [2026-10-09:]: added SOS-wPBEPP86 to auto characterisation
- - [2026-10-09:]: bumped version to 8.0.0-pre.1
- - [2026-10-09:]: added SCS and SOS version of wPBEPP86 to library
- - [2026-10-08:]: updated docs workflow
- - [2026-10-07:]: bumped version to 8.0.0
