@@ -1,18 +1,10 @@
-### Changes in this version (8.1.2) since 8.1.1
+### Changes in this version (8.1.3) since 8.1.2
 
 #### Bugfixes:
- - [%as:]: fixed reference error
- - [%as:]: destinations now no-longer try to lock the db if they don't plan on using it
- - [%as:]: fixed std2 incore check using 10 rather than 1000 D
- - [%as:]: added better error reporting for reports
-
-#### Testing updates:
- - [%as:]: added test skip for report writing if blender is not available
- - [%as:]: added test for report writing after calculation running
+ - [%as:]: fixed cleanup_start reference errors if post processing stops early
 
 #### Miscellaneous:
  - [%as:]: update last modified
- - [%as:]: version to 8.1.2
- - [%as:]: bumped version to 8.1.2-pre.1
- - [%as:]: exposed the calculation ghost option as a command line argument to submit
+ - [%as:]: updated workflows to conda python 3.9
+ - [%as:]: bumped to v8.1.3
  - [%as:]: update last modified
